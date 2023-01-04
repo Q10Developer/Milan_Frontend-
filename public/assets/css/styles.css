@@ -1,0 +1,31 @@
+.sidebar:after,
+body > .navbar-collapse:after {
+  background: #ffea3d;
+  background: -moz-linear-gradient(top, #ffea3d 0%, #e1cf35 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ffea3d),
+    color-stop(100%, #95d75c)
+  );
+  background: -webkit-linear-gradient(top, #ffea3d 0%, #e1cf35 100%);
+  background: -o-linear-gradient(top, #ffea3d 0%, #e1cf35 100%);
+  background: -ms-linear-gradient(top, #ffea3d 0%, #e1cf35 100%);
+  background: linear-gradient(to bottom, #ffea3d 0%, #e1cf35 100%);
+  background-size: 150% 150%;
+  z-index: 3;
+  opacity: 1;
+}
+
+.sidebar .nav li .nav-link,
+body > .navbar-collapse .nav li .nav-link {
+  color: #000;
+}
+
+.sidebar .nav li.active .nav-link,
+body > .navbar-collapse .nav li.active .nav-link {
+  color: #000;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.23);
+}
