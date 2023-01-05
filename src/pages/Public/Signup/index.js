@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 import InputField from "../../../components/InputField";
 import PasswordField from "../../../components/PasswordField";
-import api from "../../../api";
+import useAuthActions from "../../../states/actions/auth.actions";
 
 const schema = yup
   .object({
@@ -26,6 +26,8 @@ const schema = yup
   .required();
 
 const Signup = () => {
+  const authActions = useAuthActions();
+
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -38,14 +40,7 @@ const Signup = () => {
   });
 
   const onSubmit = (data) => {
-    api
-      .post("/registrationservice/registerUser", { ...data, usertype: 1 })
-      .then(() => {
-        console.log("Registration Successful.");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    authActions.signup(data).then(console.log).catch(console.log);
   };
 
   return (

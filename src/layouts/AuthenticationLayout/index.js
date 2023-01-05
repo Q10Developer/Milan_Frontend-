@@ -1,6 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+
+import authAtom from "../../states/atoms/auth";
 
 const AuthenticationLayout = () => {
+  const auth = useRecoilValue(authAtom);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (auth) navigate('/dashboard');
+  }, [auth, navigate]);
+
   return (
     <div className="container-fluid">
       <div className="row align-items-center">

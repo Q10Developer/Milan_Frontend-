@@ -1,8 +1,13 @@
 import { useCallback } from "react";
 import { Button, Container, Dropdown, Nav, Navbar } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+import useAuthActions from "../../../states/actions/auth.actions";
 
 const AdminNavbar = () => {
-
+  const navigate = useNavigate();
+  const authActions = useAuthActions();
+  
   const mobileSidebarToggle = useCallback((e) => {
     e.preventDefault();
     document.documentElement.classList.toggle("nav-open");
@@ -26,13 +31,6 @@ const AdminNavbar = () => {
           >
             <i className="fas fa-ellipsis-v"></i>
           </Button>
-          {/* <Navbar.Brand
-            href="#home"
-            onClick={(e) => e.preventDefault()}
-            className="mr-2"
-          >
-            Demo
-          </Navbar.Brand> */}
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-2">
           <span className="navbar-toggler-bar burger-lines"></span>
@@ -54,17 +52,14 @@ const AdminNavbar = () => {
                 <i className="nc-icon nc-circle-09" style={{ fontSize: '30px' }}></i>
               </Dropdown.Toggle>
               <Dropdown.Menu aria-labelledby="navbarDropdownMenuLink">
-                <Dropdown.Item
-                >
+                <Dropdown.Item>
                   Profile
                 </Dropdown.Item>
-                <Dropdown.Item
-                >
+                <Dropdown.Item onClick={() => navigate('/dashboard/change-password')}>
                   Change Password
                 </Dropdown.Item>
                 <div className="divider"></div>
-                <Dropdown.Item
-                >
+                <Dropdown.Item onClick={() => authActions.logout()}>
                   Logout
                 </Dropdown.Item>
               </Dropdown.Menu>

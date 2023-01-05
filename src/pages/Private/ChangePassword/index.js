@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import PasswordField from "../../../components/PasswordField";
-import api from "../../../api";
+import useAuthActions from "../../../states/actions/auth.actions";
 
 const schema = yup
   .object({
@@ -23,6 +23,8 @@ const schema = yup
   .required();
 
 const ChangePassword = () => {
+  const authActions = useAuthActions();
+
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -33,14 +35,7 @@ const ChangePassword = () => {
   });
 
   const onSubmit = (data) => {
-    api
-      .post("/changePassword", { ...data, emailId: "abc@gmail.com" })
-      .then(() => {
-        console.log("Password change Successful.");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    authActions.changePassword(data).then(console.log).catch(console.log);
   };
 
   return (

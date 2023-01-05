@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 import InputField from "../../../components/InputField";
 import PasswordField from "../../../components/PasswordField";
-import api from "../../../api";
+import useAuthActions from "../../../states/actions/auth.actions";
 
 const schema = yup
   .object({
@@ -26,11 +26,13 @@ const schema = yup
         }
       )
       .required(),
-    password: yup.string().required(),
+    password: yup.string().min(8).max(30).required(),
   })
   .required();
 
 const Login = () => {
+  const authActions = useAuthActions();
+
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -38,25 +40,9 @@ const Login = () => {
       password: "",
     },
   });
+
   const onSubmit = (data) => {
-    const payload = {
-      password: data.password,
-    };
-
-    if (/^\d{10}$/.test(data.username)) {
-      payload.mobileNumber = data.username;
-    } else {
-      payload.email = data.username;
-    }
-
-    api
-      .post("/loginService/login", payload)
-      .then(() => {
-        console.log("Login Successful.");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    authActions.login(data).then(console.log).catch(console.log);
   };
 
   return (
