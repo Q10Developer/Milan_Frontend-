@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useController } from "react-hook-form";
 
-const PasswordField = ({ control, name, label, ...props }) => {
+const PasswordField = ({ control, name, label,classProps, ...props }) => {
   const [type, setType] = useState("password");
 
   const { field, fieldState } = useController({
@@ -14,7 +14,7 @@ const PasswordField = ({ control, name, label, ...props }) => {
   }, [type]);
 
   return (
-    <div className="form-group">
+    <div className={classProps}>
       <label htmlFor={field.name}>{label}</label>
       <div className="input-group">
         <input

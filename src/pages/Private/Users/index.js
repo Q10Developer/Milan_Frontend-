@@ -3,7 +3,6 @@ import { Button, Table } from 'react-bootstrap';
 import DataTable from "react-data-table-component";
 import { Link, useNavigate } from 'react-router-dom';
 import ActionButtons from '../../../components/ActionButtons';
-import FilterComponent from '../../../components/FilterComponent/Index';
 
 
 const columns = [
@@ -27,7 +26,7 @@ const columns = [
   {
     name: "Status",
     selector: (row) => row.status,
-    sortable: true,
+    sortable: true
   },
   {
     name: "Actions",

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -71,44 +71,61 @@ const CreateUser = () => {
       </div>
       <div className="m-3">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <InputField
-            label="Name"
-            placeholder="Name"
-            name="name"
-            control={control}
-          />
-          <InputField
-            label="Email"
-            placeholder="Email"
-            name="emailId"
-            control={control}
-          />
-          <InputField
-            label="Mobile"
-            placeholder="Mobile"
-            name="mobileNumber"
-            control={control}
-          />
-          <PasswordField
-            label="Password"
-            placeholder="Password"
-            name="password"
-            control={control}
-          />
-          <DropdownField
-            label="Role"
-            placeholder="Role"
-            name="role"
-            control={control}
-            options={roleOptions}
-          />
-          <DropdownField
-            label="Status"
-            placeholder="status"
-            name="status"
-            control={control}
-            options={statusOptions}
-          />
+          <div className="form-group form-row">
+            <InputField
+              label="Name"
+              placeholder="Name"
+              name="name"
+              control={control}
+              type="text"
+              classProps={"col"}
+            />
+          </div>
+          <div className="form-group form-row">
+            <InputField
+              label="Email"
+              placeholder="Email"
+              name="emailId"
+              control={control}
+              type="email"
+              classProps={"col"}
+            />
+            <InputField
+              label="Mobile"
+              placeholder="Mobile"
+              name="mobileNumber"
+              control={control}
+              type="text"
+              classProps={"col"}
+            />
+          </div>
+          <div className="form-group form-row">
+            <PasswordField
+              label="Password"
+              placeholder="Password"
+              name="password"
+              control={control}
+              classProps={"col"}
+            />
+          </div>
+          <div className="form-group form-row">
+            <DropdownField
+              label="Role"
+              placeholder="Role"
+              name="role"
+              control={control}
+              options={roleOptions}
+              classProps={"col"}
+            />
+            <DropdownField
+              label="Status"
+              placeholder="status"
+              name="status"
+              control={control}
+              options={statusOptions}
+              classProps={"col"}
+            />
+          </div>
           <div className="d-flex justify-content-center m-3">
             <button type="submit" className="btn-fill btn btn-info my-3">
               Add User

@@ -2,6 +2,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import AuthenticationLayout from "../layouts/AuthenticationLayout";
 import ChangePassword from "../pages/Private/ChangePassword";
 import Clients from "../pages/Private/Clients";
+import CreateClient from "../pages/Private/Clients/CreateClient";
 import Dashboard from "../pages/Private/Dashboard";
 import Users from "../pages/Private/Users";
 import CreateUser from "../pages/Private/Users/CreateUser";
@@ -15,7 +16,7 @@ const routes = [
       {
         index: true,
         element: <Login />,
-      }
+      },
     ],
   },
   {
@@ -43,7 +44,7 @@ const routes = [
       {
         path: "create-user",
         element: <CreateUser />,
-      }
+      },
     ],
   },
   {
@@ -53,6 +54,10 @@ const routes = [
       {
         index: true,
         element: <Clients />,
+      },
+      {
+        path: "create-client",
+        element: <CreateClient />,
       },
     ],
   },

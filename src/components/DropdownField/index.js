@@ -1,13 +1,13 @@
 import { useController } from "react-hook-form";
 
-const DropdownField = ({ control, name, label,options, ...props }) => {
+const DropdownField = ({ control, name,classProps, label,options, ...props }) => {
   const { field, fieldState } = useController({
     name,
     control,
   });
 
   return (
-    <div className="form-group">
+    <div className={classProps}>
       <label htmlFor={field.name}>{label}</label>
       <select
         className="form-control"
@@ -19,7 +19,9 @@ const DropdownField = ({ control, name, label,options, ...props }) => {
       >
         <option value={""}>select</option>
         {options.map((item, i) => (
-          <option key={i} value={item.value}>{item.title}</option>
+          <option key={i} value={item.value}>
+            {item.title}
+          </option>
         ))}
       </select>
       {fieldState.error ? (

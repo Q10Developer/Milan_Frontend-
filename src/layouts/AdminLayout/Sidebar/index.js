@@ -37,14 +37,10 @@ const Sidebar = () => {
             icon="nc-icon nc-chart-pie-35"
             title="Dashboard"
           />
-          <MenuItem
-            path="/users"
-            icon="nc-icon nc-circle-09"
-            title="Users"
-          />
+          <MenuItem path="/users" icon="nc-icon nc-circle-09" title="Users" />
           <MenuItem
             path="/clients"
-            icon="nc-icon nc-circle-09"
+            icon="nc-icon nc-bullet-list-67"
             title="Clients"
           />
         </Nav>
