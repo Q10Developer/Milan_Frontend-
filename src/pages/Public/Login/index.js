@@ -72,11 +72,6 @@ const Login = () => {
           </button>
         </div>
       </form>
-      <div className="form-group">
-        <p className="small text-center">
-          Don't have an account? <Link to="/signup">Signup</Link>
-        </p>
-      </div>
     </>
   );
 };

@@ -36,7 +36,7 @@ const useAuthActions = () => {
     toast.success("Logout Successful.");
   };
 
-  const signup = (data) => {
+  const registerUser = (data) => {
     return api
       .post("/registrationservice/registerUser", { ...data, usertype: 1 })
       .then(() => {
@@ -61,7 +61,7 @@ const useAuthActions = () => {
   return {
     login,
     logout,
-    signup,
+    registerUser,
     changePassword,
   };
 };

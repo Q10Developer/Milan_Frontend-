@@ -1,9 +1,11 @@
 import AdminLayout from "../layouts/AdminLayout";
 import AuthenticationLayout from "../layouts/AuthenticationLayout";
 import ChangePassword from "../pages/Private/ChangePassword";
+import Clients from "../pages/Private/Clients";
 import Dashboard from "../pages/Private/Dashboard";
+import Users from "../pages/Private/Users";
+import CreateUser from "../pages/Private/Users/CreateUser";
 import Login from "../pages/Public/Login";
-import Signup from "../pages/Public/Signup";
 
 const routes = [
   {
@@ -13,11 +15,7 @@ const routes = [
       {
         index: true,
         element: <Login />,
-      },
-      {
-        path: 'signup',
-        element: <Signup />,
-      },
+      }
     ],
   },
   {
@@ -29,9 +27,33 @@ const routes = [
         element: <Dashboard />,
       },
       {
-        path: 'change-password',
-        element: <ChangePassword />
+        path: "change-password",
+        element: <ChangePassword />,
+      },
+    ],
+  },
+  {
+    path: "/users",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <Users />,
+      },
+      {
+        path: "create-user",
+        element: <CreateUser />,
       }
+    ],
+  },
+  {
+    path: "/clients",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <Clients />,
+      },
     ],
   },
 ];

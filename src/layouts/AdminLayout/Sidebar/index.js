@@ -42,6 +42,11 @@ const Sidebar = () => {
             icon="nc-icon nc-circle-09"
             title="Users"
           />
+          <MenuItem
+            path="/clients"
+            icon="nc-icon nc-circle-09"
+            title="Clients"
+          />
         </Nav>
       </div>
     </div>
