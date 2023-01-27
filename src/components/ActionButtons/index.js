@@ -8,7 +8,7 @@ const ActionButtons = () => {
           <Button variant="primary" size="sm">
             <i className="fa-solid fa-user-pen"></i>
           </Button>{" "}
-          <Button variant="danger" size="sm">
+          <Button  variant="danger" size="sm">
             <i className="fa-sharp fa-solid fa-trash"></i>
           </Button>
         </div>

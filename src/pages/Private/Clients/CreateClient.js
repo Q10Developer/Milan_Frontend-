@@ -5,17 +5,27 @@ import * as yup from "yup";
 
 import InputField from "../../../components/InputField";
 import useAuthActions from "../../../states/actions/auth.actions";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import DropdownField from "../../../components/DropdownField";
 import AddressComponent from "../../../components/AddressComponent";
 
 const schema = yup
   .object({
     title: yup.string().required(),
-    firstName: yup.string().max(100).required(),
+    firstName: yup.string().max(100).required('First Name is required !'),
     emailId: yup.string().email().required(),
     mobileNumber: yup.string().length(10).matches(/^\d+$/).required(),
-    address_line: yup.string().required()
+    middleName: yup.string().required(),
+    lastName: yup.string().required(),
+    companyName: yup.string().required(),
+    website: yup.string().required(),
+    phone: yup.string().required(),
+    gst_registration_type: yup.string().required(),
+    address: yup.string().required(),
+    city : yup.string().required(),
+    state : yup.string().required(),
+    country : yup.string().required(),
+    pin : yup.string().required()
   })
   .required();
 
@@ -91,7 +101,7 @@ const CreateClient = () => {
   return (
     <>
       <div className="d-flex justify-content-between m-3">
-        <h5></h5>
+        <h5>{ '' }</h5>
         <Button onClick={() => navigate("/clients")} variant="primary">
           <i className="fa-solid fa-arrow-left"></i> Back
         </Button>
@@ -190,7 +200,7 @@ const CreateClient = () => {
             />
           </div>
           <AddressComponent title="Billing Address" control={control} />
-          <div class="form-group form-row ml-3">
+          <div className="form-group form-row ml-3">
             <div className="col">
               <input
                 type={"checkbox"}

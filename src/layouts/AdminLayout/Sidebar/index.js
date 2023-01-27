@@ -32,17 +32,10 @@ const Sidebar = () => {
           </Link>
         </div>
         <Nav>
-          <MenuItem
-            path="/dashboard"
-            icon="nc-icon nc-chart-pie-35"
-            title="Dashboard"
-          />
-          <MenuItem path="/users" icon="nc-icon nc-circle-09" title="Users" />
-          <MenuItem
-            path="/clients"
-            icon="nc-icon nc-bullet-list-67"
-            title="Clients"
-          />
+          <MenuItem path="/dashboard" icon="nc-icon nc-chart-pie-35" title="Dashboard" />
+          <MenuItem path="/users" icon="fa-solid fa-user" title="Users" />
+          <MenuItem path="/clients" icon="fa-solid fa-list" title="Clients" />
+          <MenuItem path="/clients" icon="fa-sharp fa-solid fa-truck" title="Vehicel & Tyre"/>
         </Nav>
       </div>
     </div>

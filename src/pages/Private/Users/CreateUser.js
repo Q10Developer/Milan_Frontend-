@@ -64,7 +64,7 @@ const CreateUser = () => {
   return (
     <>
       <div className="d-flex justify-content-between m-3">
-        <h5></h5>
+        <h5>{""}</h5>
         <Button onClick={() => navigate("/users")} variant="primary">
           <i className="fa-solid fa-arrow-left"></i> Back
         </Button>

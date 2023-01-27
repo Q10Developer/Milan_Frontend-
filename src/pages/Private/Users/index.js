@@ -1,8 +1,11 @@
-import React from 'react'
-import { Button, Table } from 'react-bootstrap';
+import React, { useEffect } from 'react'
+import { Button } from 'react-bootstrap';
 import DataTable from "react-data-table-component";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import ActionButtons from '../../../components/ActionButtons';
+import UserActions from '../../../states/actions/userActions';
+import userListAtom from '../../../states/atoms/users';
 
 
 const columns = [
@@ -75,7 +78,14 @@ const data = [
 
 const Users = () => {
 
+  const users = useRecoilValue(userListAtom);
+  const userActions = UserActions();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    userActions.fetchUsers();
+  },[])
 
   return (
     <>
@@ -89,10 +99,10 @@ const Users = () => {
         </Button>
       </div>
       <DataTable
-        title="User List"
+        title="Client List"
         columns={columns}
         pagination
-        data={data}
+        data={users}
       />
     </>
   );
