@@ -6,6 +6,8 @@ import CreateClient from "../pages/Private/Clients/CreateClient";
 import Dashboard from "../pages/Private/Dashboard";
 import Users from "../pages/Private/Users";
 import CreateUser from "../pages/Private/Users/CreateUser";
+import VehicleAndTyre from "../pages/Private/Vehicle_and_tyre";
+import CreateVehicle from "../pages/Private/Vehicle_and_tyre/CreateVehicle";
 import Login from "../pages/Public/Login";
 
 const routes = [
@@ -58,6 +60,20 @@ const routes = [
       {
         path: "create-client",
         element: <CreateClient />,
+      },
+    ],
+  },
+  {
+    path: "/vehicle-and-tyre",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <VehicleAndTyre />,
+      },
+      {
+        path: "create-vehicle",
+        element: <CreateVehicle/>
       },
     ],
   },

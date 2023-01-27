@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 import InputField from "../../../components/InputField";
 import useAuthActions from "../../../states/actions/auth.actions";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import DropdownField from "../../../components/DropdownField";
 import AddressComponent from "../../../components/AddressComponent";
 
@@ -101,126 +101,130 @@ const CreateClient = () => {
   return (
     <>
       <div className="d-flex justify-content-between m-3">
-        <h5>{ '' }</h5>
+        <h5>{""}</h5>
         <Button onClick={() => navigate("/clients")} variant="primary">
           <i className="fa-solid fa-arrow-left"></i> Back
         </Button>
       </div>
-      <div className="m-3">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group form-row">
-            <DropdownField
-              label="Title"
-              placeholder="Title"
-              name="title"
-              control={control}
-              options={titleOptions}
-              classProps="col-md-12"
-            />
+      <Card>
+        <Card.Body>
+          <div className="m-3">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-group form-row">
+                <DropdownField
+                  label="Title"
+                  placeholder="Title"
+                  name="title"
+                  control={control}
+                  options={titleOptions}
+                  classProps="col-md-12"
+                />
+              </div>
+              <div className="form-group form-row">
+                <InputField
+                  label="First Name"
+                  placeholder="First Name"
+                  name="firstName"
+                  control={control}
+                  type="text"
+                  classProps="col-md-4"
+                />
+                <InputField
+                  label="Middle Name"
+                  placeholder="Middle Name"
+                  name="middleName"
+                  control={control}
+                  type="text"
+                  classProps="col-md-4"
+                />
+                <InputField
+                  label="Last Name"
+                  placeholder="Last Name"
+                  name="lastName"
+                  control={control}
+                  type="text"
+                  classProps="col-md-4"
+                />
+              </div>
+              <div className="form-group form-row">
+                <InputField
+                  label="Company Name"
+                  placeholder="Company Name"
+                  name="companyName"
+                  control={control}
+                  type="text"
+                  classProps="col-md-12"
+                />
+              </div>
+              <div className="form-group form-row">
+                <InputField
+                  label="Email"
+                  placeholder="Email"
+                  name="emailId"
+                  control={control}
+                  type="email"
+                  classProps="col-md-6"
+                />
+                <InputField
+                  label="Website"
+                  placeholder="Website"
+                  name="website"
+                  control={control}
+                  type="url"
+                  classProps="col-md-6"
+                />
+              </div>
+              <div className="form-group form-row">
+                <InputField
+                  label="Mobile"
+                  placeholder="Mobile"
+                  name="mobileNumber"
+                  control={control}
+                  type="text"
+                  classProps="col-md-6"
+                />
+                <InputField
+                  label="Phone"
+                  placeholder="Phone"
+                  name="phone"
+                  control={control}
+                  classProps="col-md-6"
+                />
+              </div>
+              <div className="form-group form-row">
+                <DropdownField
+                  label="GST Registration Type"
+                  placeholder="GST Registration Type"
+                  name="gst_registration_type"
+                  control={control}
+                  options={gstRegistrationTypes}
+                  classProps="col-md-12"
+                />
+              </div>
+              <AddressComponent title="Billing Address" control={control} />
+              <div className="form-group form-row ml-3">
+                <div className="col-md-12">
+                  <input
+                    type={"checkbox"}
+                    id="address_match"
+                    name="address_match"
+                    className="form-check-input"
+                  />
+                  <label className="form-check-label" htmlFor="address_match">
+                    {" Billing Address is same as shipping Address"}
+                  </label>
+                </div>
+              </div>
+              <AddressComponent title="Shipping Address" control={control} />
+              <div className="d-flex justify-content-center m-3">
+                <button type="submit" className="btn-fill btn btn-info my-3">
+                  Add Client
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="form-group form-row">
-            <InputField
-              label="First Name"
-              placeholder="First Name"
-              name="firstName"
-              control={control}
-              type="text"
-              classProps="col"
-            />
-            <InputField
-              label="Middle Name"
-              placeholder="Middle Name"
-              name="middleName"
-              control={control}
-              type="text"
-              classProps="col"
-            />
-            <InputField
-              label="Last Name"
-              placeholder="Last Name"
-              name="lastName"
-              control={control}
-              type="text"
-              classProps="col"
-            />
-          </div>
-          <div className="form-group form-row">
-            <InputField
-              label="Company Name"
-              placeholder="Company Name"
-              name="companyName"
-              control={control}
-              type="text"
-              classProps="col-md-12"
-            />
-          </div>
-          <div className="form-group form-row">
-            <InputField
-              label="Email"
-              placeholder="Email"
-              name="emailId"
-              control={control}
-              type="email"
-              classProps="col"
-            />
-            <InputField
-              label="Website"
-              placeholder="Website"
-              name="website"
-              control={control}
-              type="url"
-              classProps="col"
-            />
-          </div>
-          <div className="form-group form-row">
-            <InputField
-              label="Mobile"
-              placeholder="Mobile"
-              name="mobileNumber"
-              control={control}
-              type="text"
-              classProps="col"
-            />
-            <InputField
-              label="Phone"
-              placeholder="Phone"
-              name="phone"
-              control={control}
-              classProps="col"
-            />
-          </div>
-          <div className="form-group form-row">
-            <DropdownField
-              label="GST Registration Type"
-              placeholder="GST Registration Type"
-              name="gst_registration_type"
-              control={control}
-              options={gstRegistrationTypes}
-              classProps="col"
-            />
-          </div>
-          <AddressComponent title="Billing Address" control={control} />
-          <div className="form-group form-row ml-3">
-            <div className="col">
-              <input
-                type={"checkbox"}
-                id="address_match"
-                name="address_match"
-                className="form-check-input"
-              />
-              <label className="form-check-label" htmlFor="address_match">
-                  {" Billing Address is same as shipping Address"}
-              </label>
-            </div>
-          </div>
-          <AddressComponent title="Shipping Address" control={control} />
-          <div className="d-flex justify-content-center m-3">
-            <button type="submit" className="btn-fill btn btn-info my-3">
-              Add Client
-            </button>
-          </div>
-        </form>
-      </div>
+        </Card.Body>
+      </Card>
     </>
   );
 };

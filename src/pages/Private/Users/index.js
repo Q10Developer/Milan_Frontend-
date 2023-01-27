@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import DataTable from "react-data-table-component";
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -98,12 +98,16 @@ const Users = () => {
           <i className="fa-solid fa-plus"></i> New User
         </Button>
       </div>
-      <DataTable
-        title="Client List"
-        columns={columns}
-        pagination
-        data={users}
-      />
+      <Card>
+        <Card.Body>
+          <DataTable
+            title="User List"
+            columns={columns}
+            pagination
+            data={data}
+          />
+        </Card.Body>
+      </Card>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Card, Table } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import ActionButtons from "../../../components/ActionButtons";
@@ -85,7 +85,16 @@ const Clients = () => {
           <i className="fa-solid fa-plus"></i> New Client
         </Button>
       </div>
-      <DataTable title="Client List" columns={columns} pagination data={data} />
+      <Card>
+        <Card.Body>
+          <DataTable
+            title="Client List"
+            columns={columns}
+            pagination
+            data={data}
+          />
+        </Card.Body>
+      </Card>
     </>
   );
 };

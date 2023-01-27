@@ -3,11 +3,16 @@ import { Card } from 'react-bootstrap';
 import InputField from '../InputField';
 
 const AddressComponent = ({ title, control }) => {
+
+  const borderLess = {
+    
+  }
+
   return (
     <>
-      <Card>
+      <Card className='border-0'>
         <Card.Body>
-          <Card.Title className="my-3 h1">{title}</Card.Title>
+          <Card.Title className="my-3 font-weight-bold">{title}</Card.Title>
           <div className="form-group form-row">
             <InputField
               label="Address"
