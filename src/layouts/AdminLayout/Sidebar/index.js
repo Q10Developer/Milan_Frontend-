@@ -35,7 +35,7 @@ const Sidebar = () => {
           <MenuItem path="/dashboard" icon="fa-solid fa-gauge-high" title="Dashboard" />
           <MenuItem path="/users" icon="fa-solid fa-user" title="Users" />
           <MenuItem path="/clients" icon="fa-solid fa-list" title="Clients" />
-          <MenuItem path="/vehicle-and-tyre" icon="fa-sharp fa-solid fa-truck" title="Vehicel & Tyre"/>
+          <MenuItem path="/vehicle-and-tyre" icon="fa-sharp fa-solid fa-truck" title="Vehicle & Tyre"/>
         </Nav>
       </div>
     </div>
