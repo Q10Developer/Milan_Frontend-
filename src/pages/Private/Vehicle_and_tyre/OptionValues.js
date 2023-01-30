@@ -1,12 +1,27 @@
 export const vehicleTypeOptions = [
   {
-    title: "Freight – Heavy Truck / Rigid Truck / Trailor",
-    value: 1,
+    title: "Freight",
+    value: "Freight",
   },
   {
-    title: "People – Bus / Coach",
-    value: 2,
+    title: "People",
+    value: "People",
   },
+];
+
+export const vehicleSubOptions = [
+  {
+    title: "Heavy Truck",
+    value: "Heavy Truck",
+  },
+  {
+    title: "Rigid Truck",
+    value: "Rigid Truck",
+  },
+  {
+    title: "Trailor",
+    value: "Trailor",
+  }
 ];
 
 export const vehicleMakerOptions = [

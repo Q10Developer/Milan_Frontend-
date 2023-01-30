@@ -1,6 +1,6 @@
 import { useController } from "react-hook-form";
 
-const DropdownField = ({ control, name,classProps, label,options, ...props }) => {
+const DropdownField = ({ control, name,classProps, label,options,onChange, ...props }) => {
   const { field, fieldState } = useController({
     name,
     control,
@@ -12,7 +12,7 @@ const DropdownField = ({ control, name,classProps, label,options, ...props }) =>
       <select
         className="form-control"
         id={field.name}
-        onChange={field.onChange}
+        onChange={onChange}
         onBlur={field.onBlur}
         name={field.name}
         ref={field.ref}

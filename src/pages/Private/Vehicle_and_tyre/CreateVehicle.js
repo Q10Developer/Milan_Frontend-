@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { Button, Card } from "react-bootstrap";
 import DropdownField from "../../../components/DropdownField";
 import * as OptionValues from "./OptionValues";
+import { useState } from "react";
 
 const schema = yup
   .object({
@@ -23,7 +24,9 @@ const schema = yup
 const CreateVehicle = () => {
 
   const navigate = useNavigate();
-
+  const [subVahicleTypeOptions, setSubVahicleTypeOptions] = useState([]);
+  const [subVahicleTypeOptionsVisibility, setSubVahicleTypeOptionsVisibility] = useState('col-md-6 d-none');
+  
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -54,7 +57,15 @@ const CreateVehicle = () => {
                   name="type"
                   control={control}
                   options={OptionValues.vehicleTypeOptions}
-                  classProps="col-md-12"
+                  classProps="col-md-6"
+                />
+                <DropdownField
+                  label="Vehicle Sub Type"
+                  placeholder="subType"
+                  name="Sub Type"
+                  control={control}
+                  options={OptionValues.vehicleSubOptions}
+                  classProps={"col-md-6"}
                 />
               </div>
               <div className="form-group form-row">
